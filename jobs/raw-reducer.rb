@@ -27,7 +27,7 @@ def go
     key_total += value.to_i
   end
     # <key><tab><value><newline>
-    puts prev_key + "\t" + key_total.to_s
+    puts prev_key + "\t" + key_total.to_s if prev_key && key_total
 end
 
 go
