@@ -1,24 +1,30 @@
-set :application, ""
-set :repository,  ""
+set :application, "hadoop-hacknight"
+set :repository,  "git@github.com:mootpointer/hadoop-hacknight.git"
 set :user, "user"
+set :ssh_options, { :forward_agent => true }
 
+set :deploy_via, :remote_cache
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :deploy_to, "/home/user/#{application}"
 role :hadoop_node, '103.7.164.85'
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+namespace :deploy do
+  task :finalize_update do ; end
+  task :restart do ; end
+end
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :hadoop do
+
+end
+
+namespace :wukong do
+  task :run do
+    run "wu-hadoop #{current_path}/jobs/#{job}.rb --mode=hadoop -input=#{input}\
+    --output=#{output} --hadoop_runner=/usr/bin/hadoop\
+    --hadoop_home=/opt/cloudera/parcels/CDH-4.1.3-1.cdh4.1.3.p0.23/lib/hadoop-0.20-mapreduce"
+  end
+end
+
