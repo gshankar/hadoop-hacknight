@@ -2,6 +2,7 @@ def go
   prev_key = nil
   key_total = 0
   ARGF.each do |line|
+    next unless line && line.length > 0
     # puts "line" 
     line = line.chomp
     (key, value) = line.split(/\t/)
