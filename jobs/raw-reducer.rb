@@ -2,11 +2,13 @@ def go
   prev_key = nil
   key_total = 0
   ARGF.each do |line|
+    # puts "line" 
     line = line.chomp
-    # split key and value on tab character
     (key, value) = line.split(/\t/)
+    # puts key + ":" + value
 
     # check for new key
+    # puts "split"
     if prev_key && key != prev_key && key_total > 0
 
       # output total for previous key
@@ -17,10 +19,11 @@ def go
       # reset key total for new key
       prev_key = key
       key_total = 0
+      puts "ifs"
 
     elsif ! prev_key
       prev_key = key
-
+      puts "elsed"
     end
 
     # add to count for this current key
