@@ -13,7 +13,7 @@ role :hadoop_node, '103.7.164.85'
 
 namespace :deploy do
   task :finalize_update do
-    run "bundle install"
+    run "cd #{current_path} bundle install"
   end
   task :restart do ; end
 end
@@ -21,7 +21,7 @@ end
 
 namespace :wukong do
   task :go do
-    run "wu-hadoop #{current_path}/jobs/#{job}.rb --mode=hadoop -input=#{input}\
+    run "cd #{current_path} && bundle exec wu-hadoop #{current_path}/jobs/#{job}.rb --mode=hadoop -input=#{input}\
     --output=#{output} --hadoop_runner=/usr/bin/hadoop\
     --hadoop_home=/opt/cloudera/parcels/CDH-4.1.3-1.cdh4.1.3.p0.23/lib/hadoop-0.20-mapreduce"
   end
