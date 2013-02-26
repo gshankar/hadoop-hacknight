@@ -28,8 +28,8 @@ namespace :hadoop do
   task :go do
     run "cd #{current_path} && hadoop jar /opt/cloudera/parcels/CDH-4.1.3-1.cdh4.1.3.p0.23/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-*streaming*.jar 	\
   -D mapred.job.name='#{job}-#{input}-#{output}' \
-  -files        'jobs/#{job}-mapper.rb' \
-  -files        'jobs/#{job}-reducer.rb' \
+  -file        'jobs/#{job}-mapper.rb' \
+  -file        'jobs/#{job}-reducer.rb' \
   -mapper       'ruby #{job}-mapper.rb' \
   -reducer      'ruby #{job}-reducer.rb' \
   -input        'hdfs:///user/user/#{input}' \

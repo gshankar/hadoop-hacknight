@@ -5,8 +5,8 @@ def go
     # last_word = line.split(' ')[-1]
     words = line.split(' ')
     words.each do |word|
-      if word.downcase == 'sherlock'
-        puts "sherlock\t1"
+      if word.downcase == 'thou'
+        puts "thou\t1"
         # #stripped = last_word.gsub(/[^a-zA-Z0-9\']+/, '')
         # stripped = last_word
         # puts "#{stripped}\t1" #if acceptable?(stripped)
