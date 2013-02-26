@@ -2,11 +2,16 @@ def go
   ARGF.each do |line|
     line = line.chomp
     next unless line && line.length > 0
-    last_word = line.split(' ')[-1]
-    next unless last_word == 'thee'
-    #stripped = last_word.gsub(/[^a-zA-Z0-9\']+/, '')
-    stripped = last_word
-    puts "#{stripped}\t1" #if acceptable?(stripped)
+    # last_word = line.split(' ')[-1]
+    words = line.split(' ')
+    words.each do |word|
+      if word.downcase == 'sherlock'
+        puts "sherlock\t1"
+        # #stripped = last_word.gsub(/[^a-zA-Z0-9\']+/, '')
+        # stripped = last_word
+        # puts "#{stripped}\t1" #if acceptable?(stripped)
+      end
+    end
   end
 end
 

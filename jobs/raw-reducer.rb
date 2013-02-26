@@ -13,22 +13,20 @@ def go
 
       # output total for previous key
 
-      # <key><tab><value><newline>
-      puts prev_key + "\t" + key_total.to_s
 
       # reset key total for new key
       prev_key = key
       key_total = 0
-      puts "ifs"
 
     elsif ! prev_key
       prev_key = key
-      puts "elsed"
     end
 
     # add to count for this current key
     key_total += value.to_i
   end
+    # <key><tab><value><newline>
+    puts prev_key + "\t" + key_total.to_s
 end
 
 go

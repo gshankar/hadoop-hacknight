@@ -19,7 +19,7 @@ role :hadoop_node, '103.7.164.85'
 
 namespace :deploy do
   task :finalize_update do
-    run "cd #{current_path} bundle install"
+    # run "cd #{current_path} bundle install"
   end
   task :restart do ; end
 end
