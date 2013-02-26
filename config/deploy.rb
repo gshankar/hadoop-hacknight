@@ -30,8 +30,8 @@ namespace :hadoop do
   -D mapred.job.name='#{job}-#{input}-#{output}' \
   -file        'jobs/#{job}-mapper.rb' \
   -file        'jobs/#{job}-reducer.rb' \
-  -mapper       'ruby #{job}-mapper.rb' \
-  -reducer      'ruby #{job}-reducer.rb' \
+  -mapper       '/usr/local/bin/ruby #{job}-mapper.rb' \
+  -reducer      '/usr/local/bin/ruby #{job}-reducer.rb' \
   -input        'hdfs:///user/user/#{input}' \
   -output       'hdfs:///user/user/#{output}' \
   -cmdenv       'LANG=en_AU.UTF-8'"
