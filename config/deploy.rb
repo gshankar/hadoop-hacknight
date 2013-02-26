@@ -1,16 +1,16 @@
-require 'capistrano-rbenv'
+# require 'capistrano-rbenv'
 
-set :application, "hadoop-hacknight"
-set :repository,  "git@github.com:mootpointer/hadoop-hacknight.git"
+set :application, "hadoop-hacknight-ganesh"
+set :repository,  "git@github.com:gshankar/hadoop-hacknight.git"
 set :user, "user"
 set :ssh_options, { :forward_agent => true }
 
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+# set :default_environment, {
+#   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+# }
 
 set :deploy_via, :remote_cache
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
+ set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :deploy_to, "/home/user/#{application}"
